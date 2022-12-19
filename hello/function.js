@@ -1,25 +1,8 @@
-exports.handler = async (event) => {
-    console.log('Event: ', event);
-    let responseMessage = 'success';
-
-    if (event.queryStringParameters && event.queryStringParameters['Name']) {
-        responseMessage = 'Hello, ' + event.queryStringParameters['Name'] + '!';
-    }
-
-    if (event.httpMethod === 'POST') {
-        const body = JSON.parse(event.body);
-        responseMessage = 'Hello, ' + body.name + '!';
-    }
-
+export const handler = async(event) => {
+    // TODO implement
     const response = {
         statusCode: 200,
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            message: responseMessage
-        }),
+        body: JSON.stringify({message: "success"}),
     };
-
     return response;
 };
